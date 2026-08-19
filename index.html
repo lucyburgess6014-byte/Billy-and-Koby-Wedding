@@ -65,8 +65,11 @@
   }
   .nav-wrap{
     max-width:1100px; margin:0 auto; padding:0.9rem 1.5rem;
-    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:1rem;
   }
+  .nav-wrap nav{grid-column:2; justify-self:center;}
+  .brand{grid-column:1; justify-self:start;}
+  .nav-toggle{grid-column:3; justify-self:end;}
   .brand{font-family:var(--serif); font-style:italic; font-size:1.25rem; color:var(--moose); white-space:nowrap;}
   nav ul{list-style:none; display:flex; gap:1.6rem; flex-wrap:wrap;}
   nav a{
