@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Billy & Koby — October 17, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,8 +85,8 @@
 
   @media (max-width:760px){
     .nav-wrap{
-      padding-top:calc(1.1rem + env(safe-area-inset-top, 0px));
-      padding-bottom:1.1rem;
+      padding-top:max(1.6rem, calc(env(safe-area-inset-top, 0px) + 1rem));
+      padding-bottom:1rem;
     }
     nav ul{
       position:absolute; top:100%; left:0; right:0; background:var(--cream);
@@ -101,6 +101,7 @@
   #pages{
     position:relative;
     height:calc(100vh - var(--header-h, 64px) - var(--footer-h, 52px));
+    height:calc(100dvh - var(--header-h, 64px) - var(--footer-h, 52px));
     overflow:hidden;
   }
   section{
@@ -236,7 +237,13 @@
   @media (max-width:600px){
     .gallery-row{gap:0.4rem; margin-top:0.4rem;}
     .gallery-row figure{
-      width:auto; flex:1 1 0; min-width:0; flex-shrink:1;
+      width:calc((100vw - 3rem - 1.2rem) / 4);
+      flex-shrink:0;
+    }
+  }
+  @media (max-width:360px){
+    .gallery-row figure{
+      width:calc((100vw - 2.4rem - 1.2rem) / 4);
     }
   }
   .lightbox{
