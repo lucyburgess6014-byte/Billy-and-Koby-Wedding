@@ -210,10 +210,10 @@
 
   /* ---------- Photos ---------- */
   .gallery{
-    display:grid; grid-template-columns:repeat(auto-fill, minmax(130px,1fr)); gap:0.6rem;
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(125px,1fr)); gap:0.6rem;
   }
   .gallery figure{
-    position:relative; aspect-ratio:4/3; overflow:hidden; border-radius:2px;
+    position:relative; aspect-ratio:1/1; overflow:hidden; border-radius:2px;
     background:linear-gradient(135deg, var(--ceramic), var(--ash-blonde));
     cursor:pointer;
   }
@@ -662,8 +662,8 @@
 <section id="photos" class="alt">
   <div class="inner">
     <p class="eyebrow center">Photos</p>
-    <h2 class="center" style="font-size:2.2rem; margin-top:0.5rem;">Some favorites</h2>
-    <svg class="sprig" viewBox="0 0 120 30"><path d="M5 15 C 30 5, 90 25, 115 15"/><ellipse class="leaf" cx="35" cy="10" rx="7" ry="3" transform="rotate(-20 35 10)"/><ellipse class="leaf" cx="60" cy="20" rx="7" ry="3" transform="rotate(15 60 20)"/><ellipse class="leaf" cx="85" cy="10" rx="7" ry="3" transform="rotate(-15 85 10)"/></svg>
+    <h2 class="center" style="font-size:1.9rem; margin-top:0.4rem;">Some favorites</h2>
+    <svg class="sprig" viewBox="0 0 120 30" style="margin:0.7rem auto;"><path d="M5 15 C 30 5, 90 25, 115 15"/><ellipse class="leaf" cx="35" cy="10" rx="7" ry="3" transform="rotate(-20 35 10)"/><ellipse class="leaf" cx="60" cy="20" rx="7" ry="3" transform="rotate(15 60 20)"/><ellipse class="leaf" cx="85" cy="10" rx="7" ry="3" transform="rotate(-15 85 10)"/></svg>
 
     <div class="gallery" id="gallery">
       <figure><img src="photos/engagement-1.jpg" alt="Billy and Koby, engagement photo 1" loading="lazy"></figure>
