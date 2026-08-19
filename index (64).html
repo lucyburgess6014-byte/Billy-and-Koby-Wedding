@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Billy & Koby — October 17, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:        #F6EEE1; /* OS8-1 Macaroon Cream   */
+    --ash-blonde:   #E1D3B6; /* OS7-3 Ash Blonde        */
+    --ceramic:      #C9B593; /* YS4-2 Ceramic Beige     */
+    --windswept:    #9C9A6C; /* YS3-5 Windswept Leaves  */
+    --oak:          #8C6D48; /* YN2-7 Library Oak       */
+    --moose:        #6C4E36; /* ON2-7 Moose Trail       */
+    --havana:       #4A3324; /* ON4-7 Havana Coffee     */
+    --olive:        #5C6839; /* GS2-6 Truly Olive       */
+
+    --serif: 'Fraunces', serif;
+    --sans: 'Work Sans', sans-serif;
+
+    --header-h: 64px;
+    --footer-h: 52px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    background:var(--cream);
+    color:var(--havana);
+    font-family:var(--sans);
+    font-weight:300;
+    line-height:1.6;
+    overflow:hidden;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  h1,h2,h3,.display{font-family:var(--serif); font-weight:500; color:var(--moose); letter-spacing:0.01em;}
+  em{font-family:var(--serif); font-style:italic; font-weight:400; color:var(--olive);}
+  a{color:var(--olive); text-decoration:none;}
+  a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--olive); outline-offset:3px;
+  }
+
+  .eyebrow{
+    font-family:var(--sans); text-transform:uppercase; letter-spacing:0.28em;
+    font-size:0.72rem; color:var(--oak); font-weight:500;
+  }
+
+  /* ---------- Botanical sprig, reused as a divider ---------- */
+  .sprig{display:block; margin:1.75rem auto; width:120px; height:auto;}
+  .sprig path, .sprig ellipse{stroke:var(--windswept); fill:none; stroke-width:1.4;}
+  .sprig .leaf{fill:var(--windswept); stroke:none; opacity:0.85;}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:relative; z-index:100;
+    background:rgba(246,238,225,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--ceramic);
+  }
+  .nav-wrap{
+    max-width:1100px; margin:0 auto; padding:0.9rem 1.5rem;
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  }
+  .brand{font-family:var(--serif); font-style:italic; font-size:1.25rem; color:var(--moose); white-space:nowrap;}
+  nav ul{list-style:none; display:flex; gap:1.6rem; flex-wrap:wrap;}
+  nav a{
+    font-size:0.82rem; text-transform:uppercase; letter-spacing:0.12em;
+    color:var(--havana); font-weight:500; position:relative; padding-bottom:3px;
+  }
+  nav a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1px;
+    background:var(--olive); transition:width 0.25s ease;
+  }
+  nav a:hover::after, nav a.active::after{width:100%;}
+  .nav-toggle{display:none; background:none; border:none; font-size:1.4rem; color:var(--moose); cursor:pointer;}
+
+  @media (max-width:760px){
+    nav ul{
+      position:absolute; top:100%; left:0; right:0; background:var(--cream);
+      flex-direction:column; gap:0; padding:0.5rem 1.5rem 1rem; border-bottom:1px solid var(--ceramic);
+      display:none;
+    }
+    nav ul.open{display:flex;}
+    nav li{padding:0.6rem 0; border-top:1px solid var(--ash-blonde);}
+    .nav-toggle{display:block;}
+  }
+
+  #pages{
+    position:relative;
+    height:calc(100vh - var(--header-h, 64px) - var(--footer-h, 52px));
+    overflow:hidden;
+  }
+  section{
+    position:absolute; inset:0; padding:3.5rem 1.5rem 2.5rem;
+    display:flex; flex-direction:column; justify-content:center;
+    overflow-y:auto; -webkit-overflow-scrolling:touch;
+    opacity:0; visibility:hidden; pointer-events:none;
+    transition:opacity 0.4s ease;
+  }
+  section.active{opacity:1; visibility:visible; pointer-events:auto; z-index:2;}
+  .inner{max-width:1000px; margin:0 auto;}
+  .narrow{max-width:680px; margin:0 auto;}
+  .center{text-align:center;}
+  .alt{background:var(--ash-blonde);}
+
+  /* ---------- Hero ---------- */
+  #home{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding-top:2rem; padding-bottom:2rem;
+    background:
+      radial-gradient(ellipse at 50% -10%, rgba(156,154,108,0.16), transparent 60%),
+      var(--cream);
+  }
+  .arch{width:min(460px, 82vw); height:auto; margin-bottom:1rem;}
+  .arch path, .arch ellipse{stroke:var(--windswept); fill:none; stroke-width:1.6;}
+  .arch .leaf, .hero-flourish .leaf{fill:var(--windswept); stroke:none;}
+  .arch .petal, .corner-sprig .petal, .hero-flourish .petal{fill:var(--ceramic); stroke:none;}
+  .arch .flower-center, .corner-sprig .flower-center, .hero-flourish .flower-center{fill:var(--oak); stroke:none;}
+
+  .corner-sprig{
+    position:absolute; width:min(180px, 26vw); height:auto; opacity:0.55; pointer-events:none;
+  }
+  .corner-sprig path{stroke:var(--windswept); fill:none; stroke-width:1.3;}
+  .corner-sprig .leaf{fill:var(--windswept); stroke:none;}
+  .corner-sprig-left{top:5.5rem; left:1rem;}
+  .corner-sprig-right{top:5.5rem; right:1rem; transform:scaleX(1);}
+  .corner-sprig-bottom-left{bottom:1rem; left:1rem;}
+  .corner-sprig-bottom-right{bottom:1rem; right:1rem;}
+  @media (max-width:700px){
+    .corner-sprig{opacity:0.35; width:22vw;}
+  }
+  .hero-names{
+    font-size:clamp(2.6rem, 8vw, 5rem); line-height:1.05; color:var(--moose);
+  }
+  .hero-and{font-style:italic; color:var(--olive); font-size:0.55em; display:block; margin:0.1em 0;}
+  .hero-date{
+    margin-top:1.4rem; font-family:var(--sans); letter-spacing:0.22em; text-transform:uppercase;
+    font-size:0.85rem; color:var(--havana);
+  }
+  .hero-loc{margin-top:0.35rem; color:var(--oak); font-size:0.95rem; font-style:italic; font-family:var(--serif);}
+  .hero-flourish{margin-top:2.2rem; width:110px; height:auto;}
+  .hero-flourish path{stroke:var(--windswept); fill:none; stroke-width:1.3;}
+  .hero-flourish .leaf{fill:var(--windswept); stroke:none;}
+  .hero-note{margin-top:1rem; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--oak); opacity:0.8;}
+
+  /* ---------- Our Story ---------- */
+  .story-item{
+    display:grid; grid-template-columns:90px 1fr; gap:1.5rem; margin-bottom:2.6rem; position:relative;
+  }
+  .story-item:not(:last-child)::before{
+    content:''; position:absolute; left:44px; top:2.4rem; bottom:-2.6rem; width:1px;
+    background:var(--ceramic);
+  }
+  .story-year{font-family:var(--serif); font-style:italic; color:var(--olive); font-size:1.1rem; text-align:right; padding-top:0.15rem;}
+  .story-text h3{font-size:1.25rem; margin-bottom:0.4rem;}
+  .story-text p{color:var(--havana); font-size:0.97rem; max-width:52ch;}
+
+  /* ---------- Photos ---------- */
+  .gallery{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(210px,1fr)); gap:0.75rem;
+  }
+  .gallery figure{
+    position:relative; aspect-ratio:1/1; overflow:hidden; border-radius:2px;
+    background:linear-gradient(135deg, var(--ceramic), var(--ash-blonde));
+    cursor:pointer;
+  }
+  .gallery img{width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s ease;}
+  .gallery figure:hover img{transform:scale(1.06);}
+  .gallery figcaption{
+    position:absolute; left:0; right:0; bottom:0; padding:0.5rem 0.7rem;
+    font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--cream);
+    background:linear-gradient(to top, rgba(74,50,36,0.75), transparent);
+  }
+  .lightbox{
+    position:fixed; inset:0; background:rgba(74,50,36,0.92); display:none;
+    align-items:center; justify-content:center; z-index:200; padding:2rem;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:90vw; max-height:82vh; border:6px solid var(--cream);}
+  .lightbox-close{
+    position:absolute; top:1.5rem; right:1.8rem; background:none; border:none;
+    color:var(--cream); font-size:2rem; cursor:pointer; line-height:1;
+  }
+  .photo-note{color:var(--oak); font-size:0.85rem; margin-top:1.5rem; font-style:italic; text-align:center;}
+
+  /* ---------- Schedule ---------- */
+  .timeline{max-width:640px; margin:0 auto; position:relative; padding-left:2.2rem;}
+  .timeline::before{
+    content:''; position:absolute; left:6px; top:8px; bottom:8px; width:1px; background:var(--ceramic);
+  }
+  .tl-item{position:relative; padding-bottom:2.6rem;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:''; position:absolute; left:-2.2rem; top:5px; width:10px; height:10px; border-radius:50%;
+    background:var(--cream); border:2px solid var(--olive);
+  }
+  .tl-time{font-family:var(--sans); letter-spacing:0.15em; text-transform:uppercase; font-size:0.75rem; color:var(--oak);}
+  .tl-title{font-family:var(--serif); font-size:1.3rem; color:var(--moose); margin:0.2rem 0 0.3rem;}
+  .tl-desc{font-size:0.92rem; color:var(--havana); max-width:48ch;}
+
+  /* ---------- FAQ ---------- */
+  .faq-item{border-bottom:1px solid var(--ceramic);}
+  .faq-item summary{
+    list-style:none; cursor:pointer; padding:1.3rem 2rem 1.3rem 0; position:relative;
+    font-family:var(--serif); font-size:1.15rem; color:var(--moose);
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:'+'; position:absolute; right:0; top:1.2rem; font-size:1.4rem; color:var(--olive);
+    transition:transform 0.25s ease;
+  }
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item p{padding-bottom:1.4rem; color:var(--havana); font-size:0.95rem; max-width:60ch;}
+
+  /* ---------- Registry ---------- */
+  .registry-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.4rem;}
+  .registry-card{
+    background:var(--cream); border:1px solid var(--ceramic); padding:2.2rem 1.6rem; text-align:center;
+    transition:border-color 0.25s ease, transform 0.25s ease;
+  }
+  .registry-card:hover{border-color:var(--olive); transform:translateY(-3px);}
+  .registry-card h3{font-size:1.15rem; margin-bottom:0.5rem;}
+  .registry-card p{font-size:0.88rem; color:var(--oak); margin-bottom:1.2rem;}
+  .btn{
+    display:inline-block; padding:0.7rem 1.7rem; border:1px solid var(--olive); color:var(--olive);
+    font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; transition:background 0.25s ease, color 0.25s ease;
+  }
+  .btn:hover{background:var(--olive); color:var(--cream);}
+  .btn-solid{background:var(--olive); color:var(--cream); border-color:var(--olive);}
+  .btn-solid:hover{background:var(--moose); border-color:var(--moose);}
+
+  /* ---------- RSVP ---------- */
+  form{max-width:560px; margin:0 auto; display:grid; gap:1.3rem;}
+  .field{display:grid; gap:0.4rem;}
+  label{font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--oak);}
+  input[type=text], input[type=email], input[type=number], select, textarea{
+    font-family:var(--sans); font-size:1rem; padding:0.7rem 0.8rem; background:var(--cream);
+    border:1px solid var(--ceramic); color:var(--havana); border-radius:1px;
+  }
+  textarea{resize:vertical; min-height:90px;}
+  fieldset{border:1px solid var(--ceramic); padding:0.9rem 1rem; display:flex; gap:1.6rem; flex-wrap:wrap;}
+  fieldset legend{font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--oak); padding:0 0.4rem;}
+  .radio-opt{display:flex; align-items:center; gap:0.5rem; font-size:0.92rem;}
+  form button{
+    justify-self:start; margin-top:0.4rem; background:var(--olive); color:var(--cream); border:none;
+    padding:0.85rem 2.2rem; font-size:0.8rem; letter-spacing:0.16em; text-transform:uppercase; cursor:pointer;
+    transition:background 0.25s ease;
+  }
+  form button:hover{background:var(--moose);}
+  .rsvp-note{font-size:0.82rem; color:var(--oak); font-style:italic; margin-top:1rem;}
+  #rsvp-success{display:none; text-align:center; padding:2rem; border:1px solid var(--ceramic);}
+  #rsvp-success.show{display:block;}
+
+  footer{
+    position:relative; z-index:100;
+    padding:0.7rem 1.5rem; text-align:center; background:var(--moose); color:var(--ash-blonde);
+    display:flex; align-items:baseline; justify-content:center; gap:0.6rem; flex-wrap:wrap;
+    border-top:1px solid var(--oak);
+  }
+  footer .brand{color:var(--cream); font-size:0.95rem; margin-bottom:0;}
+  footer p{font-size:0.72rem; opacity:0.85;}
+
+  ::selection{background:var(--windswept); color:var(--cream);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="brand">B &amp; K</div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" id="navToggle">&#9776;</button>
+    <nav>
+      <ul id="navList">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#photos">Photos</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li><a href="#registry">Registry</a></li>
+        <li><a href="#rsvp">RSVP</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="pages">
+<!-- ================= HOME ================= -->
+<section id="home">
+  <svg class="corner-sprig corner-sprig-left" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0 20 C 40 10, 60 40, 55 75 C 50 110, 80 120, 100 150"/>
+    <ellipse class="leaf" cx="30" cy="18" rx="10" ry="4.2" transform="rotate(-25 30 18)"/>
+    <ellipse class="leaf" cx="52" cy="42" rx="9" ry="4" transform="rotate(35 52 42)"/>
+    <ellipse class="leaf" cx="48" cy="80" rx="9" ry="4" transform="rotate(-15 48 80)"/>
+    <ellipse class="leaf" cx="70" cy="108" rx="9" ry="4" transform="rotate(50 70 108)"/>
+    <g class="flower" transform="translate(58,60)">
+      <ellipse class="petal" cx="0" cy="-9" rx="5" ry="3.2"/>
+      <ellipse class="petal" cx="8.5" cy="-3" rx="5" ry="3.2" transform="rotate(72 8.5 -3)"/>
+      <ellipse class="petal" cx="5" cy="7.5" rx="5" ry="3.2" transform="rotate(144 5 7.5)"/>
+      <ellipse class="petal" cx="-5" cy="7.5" rx="5" ry="3.2" transform="rotate(216 -5 7.5)"/>
+      <ellipse class="petal" cx="-8.5" cy="-3" rx="5" ry="3.2" transform="rotate(288 -8.5 -3)"/>
+      <circle class="flower-center" cx="0" cy="0" r="2.6"/>
+    </g>
+    <g class="flower" transform="translate(92,133) scale(0.75)">
+      <ellipse class="petal" cx="0" cy="-9" rx="5" ry="3.2"/>
+      <ellipse class="petal" cx="8.5" cy="-3" rx="5" ry="3.2" transform="rotate(72 8.5 -3)"/>
+      <ellipse class="petal" cx="5" cy="7.5" rx="5" ry="3.2" transform="rotate(144 5 7.5)"/>
+      <ellipse class="petal" cx="-5" cy="7.5" rx="5" ry="3.2" transform="rotate(216 -5 7.5)"/>
+      <ellipse class="petal" cx="-8.5" cy="-3" rx="5" ry="3.2" transform="rotate(288 -8.5 -3)"/>
+      <circle class="flower-center" cx="0" cy="0" r="2.6"/>
+    </g>
+  </svg>
+
+  <svg class="corner-sprig corner-sprig-right" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M160 20 C 120 10, 100 40, 105 75 C 110 110, 80 120, 60 150"/>
+    <ellipse class="leaf" cx="130" cy="18" rx="10" ry="4.2" transform="rotate(25 130 18)"/>
+    <ellipse class="leaf" cx="108" cy="42" rx="9" ry="4" transform="rotate(-35 108 42)"/>
+    <ellipse class="leaf" cx="112" cy="80" rx="9" ry="4" transform="rotate(15 112 80)"/>
+    <ellipse class="leaf" cx="90" cy="108" rx="9" ry="4" transform="rotate(-50 90 108)"/>
+    <g class="flower" transform="translate(102,60)">
+      <ellipse class="petal" cx="0" cy="-9" rx="5" ry="3.2"/>
+      <ellipse class="petal" cx="8.5" cy="-3" rx="5" ry="3.2" transform="rotate(72 8.5 -3)"/>
+      <ellipse class="petal" cx="5" cy="7.5" rx="5" ry="3.2" transform="rotate(144 5 7.5)"/>
+      <ellipse class="petal" cx="-5" cy="7.5" rx="5" ry="3.2" transform="rotate(216 -5 7.5)"/>
+      <ellipse class="petal" cx="-8.5" cy="-3" rx="5" ry="3.2" transform="rotate(288 -8.5 -3)"/>
+      <circle class="flower-center" cx="0" cy="0" r="2.6"/>
+    </g>
+    <g class="flower" transform="translate(68,133) scale(0.75)">
+      <ellipse class="petal" cx="0" cy="-9" rx="5" ry="3.2"/>
+      <ellipse class="petal" cx="8.5" cy="-3" rx="5" ry="3.2" transform="rotate(72 8.5 -3)"/>
+      <ellipse class="petal" cx="5" cy="7.5" rx="5" ry="3.2" transform="rotate(144 5 7.5)"/>
+      <ellipse class="petal" cx="-5" cy="7.5" rx="5" ry="3.2" transform="rotate(216 -5 7.5)"/>
+      <ellipse class="petal" cx="-8.5" cy="-3" rx="5" ry="3.2" transform="rotate(288 -8.5 -3)"/>
+      <circle class="flower-center" cx="0" cy="0" r="2.6"/>
+    </g>
+  </svg>
+
+  <svg class="corner-sprig corner-sprig-bottom-left" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0 140 C 40 150, 60 120, 55 85 C 50 50, 80 40, 100 10"/>
+    <ellipse class="leaf" cx="30" cy="142" rx="10" ry="4.2" transform="rotate(25 30 142)"/>
+    <ellipse class="leaf" cx="52" cy="118" rx="9" ry="4" transform="rotate(-35 52 118)"/>
+    <ellipse class="leaf" cx="48" cy="80" rx="9" ry="4" transform="rotate(15 48 80)"/>
+    <ellipse class="leaf" cx="70" cy="52" rx="9" ry="4" transform="rotate(-50 70 52)"/>
+    <g class="flower" transform="translate(58,100)">
+      <ellipse class="petal" cx="0" cy="-9" rx="5" ry="3.2"/>
+      <ellipse class="petal" cx="8.5" cy="-3" rx="5" ry="3.2" transform="rotate(72 8.5 -3)"/>
+      <ellipse class="petal" cx="5" cy="7.5" rx="5" ry="3.2" transform="rotate(144 5 7.5)"/>
+      <ellipse class="petal" cx="-5" cy="7.5" rx="5" ry="3.2" transform="rotate(216 -5 7.5)"/>
+      <ellipse class="petal" cx="-8.5" cy="-3" rx="5" ry="3.2" transform="rotate(288 -8.5 -3)"/>
+      <circle class="flower-center" cx="0" cy="0" r="2.6"/>
+    </g>
+    <g class="flower" transform="translate(92,27) scale(0.75)">
+      <ellipse class="petal" cx="0" cy="-9" rx="5" ry="3.2"/>
+      <ellipse class="petal" cx="8.5" cy="-3" rx="5" ry="3.2" transform="rotate(72 8.5 -3)"/>
+      <ellipse class="petal" cx="5" cy="7.5" rx="5" ry="3.2" transform="rotate(144 5 7.5)"/>
+      <ellipse class="petal" cx="-5" cy="7.5" rx="5" ry="3.2" transform="rotate(216 -5 7.5)"/>
+      <ellipse class="petal" cx="-8.5" cy="-3" rx="5" ry="3.2" transform="rotate(288 -8.5 -3)"/>
+      <circle class="flower-center" cx="0" cy="0" r="2.6"/>
+    </g>
+  </svg>
+
+  <svg class="corner-sprig corner-sprig-bottom-right" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M160 140 C 120 150, 100 120, 105 85 C 110 50, 80 40, 60 10"/>
+    <ellipse class="leaf" cx="130" cy="142" rx="10" ry="4.2" transform="rotate(-25 130 142)"/>
+    <ellipse class="leaf" cx="108" cy="118" rx="9" ry="4" transform="rotate(35 108 118)"/>
+    <ellipse class="leaf" cx="112" cy="80" rx="9" ry="4" transform="rotate(-15 112 80)"/>
+    <ellipse class="leaf" cx="90" cy="52" rx="9" ry="4" transform="rotate(50 90 52)"/>
+    <g class="flower" transform="translate(102,100)">
+      <ellipse class="petal" cx="0" cy="-9" rx="5" ry="3.2"/>
+      <ellipse class="petal" cx="8.5" cy="-3" rx="5" ry="3.2" transform="rotate(72 8.5 -3)"/>
+      <ellipse class="petal" cx="5" cy="7.5" rx="5" ry="3.2" transform="rotate(144 5 7.5)"/>
+      <ellipse class="petal" cx="-5" cy="7.5" rx="5" ry="3.2" transform="rotate(216 -5 7.5)"/>
+      <ellipse class="petal" cx="-8.5" cy="-3" rx="5" ry="3.2" transform="rotate(288 -8.5 -3)"/>
+      <circle class="flower-center" cx="0" cy="0" r="2.6"/>
+    </g>
+    <g class="flower" transform="translate(68,27) scale(0.75)">
+      <ellipse class="petal" cx="0" cy="-9" rx="5" ry="3.2"/>
+      <ellipse class="petal" cx="8.5" cy="-3" rx="5" ry="3.2" transform="rotate(72 8.5 -3)"/>
+      <ellipse class="petal" cx="5" cy="7.5" rx="5" ry="3.2" transform="rotate(144 5 7.5)"/>
+      <ellipse class="petal" cx="-5" cy="7.5" rx="5" ry="3.2" transform="rotate(216 -5 7.5)"/>
+      <ellipse class="petal" cx="-8.5" cy="-3" rx="5" ry="3.2" transform="rotate(288 -8.5 -3)"/>
+      <circle class="flower-center" cx="0" cy="0" r="2.6"/>
+    </g>
+  </svg>
+
+  <svg class="arch" viewBox="0 0 400 240" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 230 C20 90 130 10 200 10 C270 10 380 90 380 230" />
+
+    <!-- left climbing vine -->
+    <path class="branch" d="M20 230 C 45 205, 32 175, 58 162 C 80 151, 68 122, 92 108 C 112 97, 100 70, 122 55"/>
+    <g>
+      <ellipse class="leaf" cx="42" cy="192" rx="9" ry="4" transform="rotate(35 42 192)"/>
+      <ellipse class="leaf" cx="30" cy="215" rx="8" ry="3.5" transform="rotate(8 30 215)"/>
+      <ellipse class="leaf" cx="65" cy="168" rx="9" ry="4" transform="rotate(-25 65 168)"/>
+      <ellipse class="leaf" cx="52" cy="148" rx="8.5" ry="3.8" transform="rotate(60 52 148)"/>
+      <ellipse class="leaf" cx="98" cy="118" rx="9" ry="4" transform="rotate(-20 98 118)"/>
+      <ellipse class="leaf" cx="82" cy="100" rx="8.5" ry="3.8" transform="rotate(55 82 100)"/>
+      <ellipse class="leaf" cx="128" cy="62" rx="8" ry="3.5" transform="rotate(-30 128 62)"/>
+      <ellipse class="leaf" cx="112" cy="48" rx="7.5" ry="3.3" transform="rotate(40 112 48)"/>
+    </g>
+    <g class="flower" transform="translate(60,158)">
+      <ellipse class="petal" cx="0" cy="-9" rx="5.2" ry="3.3"/>
+      <ellipse class="petal" cx="8.7" cy="-3" rx="5.2" ry="3.3" transform="rotate(72 8.7 -3)"/>
+      <ellipse class="petal" cx="5.3" cy="7.5" rx="5.2" ry="3.3" transform="rotate(144 5.3 7.5)"/>
+      <ellipse class="petal" cx="-5.3" cy="7.5" rx="5.2" ry="3.3" transform="rotate(216 -5.3 7.5)"/>
+      <ellipse class="petal" cx="-8.7" cy="-3" rx="5.2" ry="3.3" transform="rotate(288 -8.7 -3)"/>
+      <circle class="flower-center" cx="0" cy="0" r="2.8"/>
+    </g>
+    <g class="flower" transform="translate(95,105) scale(0.85)">
+      <ellipse class="petal" cx="0" cy="-9" rx="5.2" ry="3.3"/>
+      <ellipse class="petal" cx="8.7" cy="-3" rx="5.2" ry="3.3" transform="rotate(72 8.7 -3)"/>
+      <ellipse class="petal" cx="5.3" cy="7.5" rx="5.2" ry="3.3" transform="rotate(144 5.3 7.5)"/>
+      <ellipse class="petal" cx="-5.3" cy="7.5" rx="5.2" ry="3.3" transform="rotate(216 -5.3 7.5)"/>
+      <ellipse class="petal" cx="-8.7" cy="-3" rx="5.2" ry="3.3" transform="rotate(288 -8.7 -3)"/>
+      <circle class="flower-center" cx="0" cy="0" r="2.8"/>
+    </g>
+
+    <!-- right climbing vine -->
+    <path class="branch" d="M380 230 C 355 205, 368 175, 342 162 C 320 151, 332 122, 308 108 C 288 97, 300 70, 278 55"/>
+    <g>
+      <ellipse class="leaf" cx="358" cy="192" rx="9" ry="4" transform="rotate(-35 358 192)"/>
+      <ellipse class="leaf" cx="370" cy="215" rx="8" ry="3.5" transform="rotate(-8 370 215)"/>
+      <ellipse class="leaf" cx="335" cy="168" rx="9" ry="4" transform="rotate(25 335 168)"/>
+      <ellipse class="leaf" cx="348" cy="148" rx="8.5" ry="3.8" transform="rotate(-60 348 148)"/>
+      <ellipse class="leaf" cx="302" cy="118" rx="9" ry="4" transform="rotate(20 302 118)"/>
+      <ellipse class="leaf" cx="318" cy="100" rx="8.5" ry="3.8" transform="rotate(-55 318 100)"/>
+      <ellipse class="leaf" cx="272" cy="62" rx="8" ry="3.5" transform="rotate(30 272 62)"/>
+      <ellipse class="leaf" cx="288" cy="48" rx="7.5" ry="3.3" transform="rotate(-40 288 48)"/>
+    </g>
+    <g class="flower" transform="translate(340,158)">
+      <ellipse class="petal" cx="0" cy="-9" rx="5.2" ry="3.3"/>
+      <ellipse class="petal" cx="8.7" cy="-3" rx="5.2" ry="3.3" transform="rotate(72 8.7 -3)"/>
+      <ellipse class="petal" cx="5.3" cy="7.5" rx="5.2" ry="3.3" transform="rotate(144 5.3 7.5)"/>
+      <ellipse class="petal" cx="-5.3" cy="7.5" rx="5.2" ry="3.3" transform="rotate(216 -5.3 7.5)"/>
+      <ellipse class="petal" cx="-8.7" cy="-3" rx="5.2" ry="3.3" transform="rotate(288 -8.7 -3)"/>
+      <circle class="flower-center" cx="0" cy="0" r="2.8"/>
+    </g>
+    <g class="flower" transform="translate(305,105) scale(0.85)">
+      <ellipse class="petal" cx="0" cy="-9" rx="5.2" ry="3.3"/>
+      <ellipse class="petal" cx="8.7" cy="-3" rx="5.2" ry="3.3" transform="rotate(72 8.7 -3)"/>
+      <ellipse class="petal" cx="5.3" cy="7.5" rx="5.2" ry="3.3" transform="rotate(144 5.3 7.5)"/>
+      <ellipse class="petal" cx="-5.3" cy="7.5" rx="5.2" ry="3.3" transform="rotate(216 -5.3 7.5)"/>
+      <ellipse class="petal" cx="-8.7" cy="-3" rx="5.2" ry="3.3" transform="rotate(288 -8.7 -3)"/>
+      <circle class="flower-center" cx="0" cy="0" r="2.8"/>
+    </g>
+  </svg>
+  <h1 class="hero-names">Billy<span class="hero-and">&amp;</span>Koby</h1>
+  <p class="hero-date">October 17, 2026</p>
+  <p class="hero-loc">Delicious &middot; St. Petersburg, Florida</p>
+  <svg class="hero-flourish" viewBox="0 0 110 26" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M5 13 C 25 4, 45 22, 55 13 C 65 4, 85 22, 105 13"/>
+    <ellipse class="leaf" cx="20" cy="9" rx="6" ry="2.8" transform="rotate(-25 20 9)"/>
+    <ellipse class="leaf" cx="35" cy="18" rx="6" ry="2.8" transform="rotate(20 35 18)"/>
+    <ellipse class="leaf" cx="75" cy="18" rx="6" ry="2.8" transform="rotate(-20 75 18)"/>
+    <ellipse class="leaf" cx="90" cy="9" rx="6" ry="2.8" transform="rotate(25 90 9)"/>
+    <g transform="translate(55,13) scale(0.55)">
+      <ellipse class="petal" cx="0" cy="-9" rx="5.2" ry="3.3"/>
+      <ellipse class="petal" cx="8.7" cy="-3" rx="5.2" ry="3.3" transform="rotate(72 8.7 -3)"/>
+      <ellipse class="petal" cx="5.3" cy="7.5" rx="5.2" ry="3.3" transform="rotate(144 5.3 7.5)"/>
+      <ellipse class="petal" cx="-5.3" cy="7.5" rx="5.2" ry="3.3" transform="rotate(216 -5.3 7.5)"/>
+      <ellipse class="petal" cx="-8.7" cy="-3" rx="5.2" ry="3.3" transform="rotate(288 -8.7 -3)"/>
+      <circle class="flower-center" cx="0" cy="0" r="2.8"/>
+    </g>
+  </svg>
+  <p class="hero-note">Explore using the menu above</p>
+</section>
+
+<!-- ================= OUR STORY ================= -->
+<section id="story">
+  <div class="narrow">
+    <p class="eyebrow center">Our Story</p>
+    <h2 class="center" style="font-size:2.2rem; margin-top:0.5rem;">How we got here</h2>
+    <svg class="sprig" viewBox="0 0 120 30"><path d="M5 15 C 30 5, 90 25, 115 15"/><ellipse class="leaf" cx="35" cy="10" rx="7" ry="3" transform="rotate(-20 35 10)"/><ellipse class="leaf" cx="60" cy="20" rx="7" ry="3" transform="rotate(15 60 20)"/><ellipse class="leaf" cx="85" cy="10" rx="7" ry="3" transform="rotate(-15 85 10)"/></svg>
+
+    <div class="story-item">
+      <div class="story-year">2019</div>
+      <div class="story-text">
+        <h3>How we met</h3>
+        <p>Replace this with the story of your first meeting — where it happened and what you each remember most about that day.</p>
+      </div>
+    </div>
+    <div class="story-item">
+      <div class="story-year">2022</div>
+      <div class="story-text">
+        <h3>Building a life together</h3>
+        <p>A note about moving in together, a memorable trip, or the moment you knew this was it — swap in your own milestone here.</p>
+      </div>
+    </div>
+    <div class="story-item">
+      <div class="story-year">2026</div>
+      <div class="story-text">
+        <h3>The proposal</h3>
+        <p>Tell guests where and how the proposal happened — the setting, the surprise, the first calls you made afterward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PHOTOS ================= -->
+<section id="photos" class="alt">
+  <div class="inner">
+    <p class="eyebrow center">Photos</p>
+    <h2 class="center" style="font-size:2.2rem; margin-top:0.5rem;">Some favorites</h2>
+    <svg class="sprig" viewBox="0 0 120 30"><path d="M5 15 C 30 5, 90 25, 115 15"/><ellipse class="leaf" cx="35" cy="10" rx="7" ry="3" transform="rotate(-20 35 10)"/><ellipse class="leaf" cx="60" cy="20" rx="7" ry="3" transform="rotate(15 60 20)"/><ellipse class="leaf" cx="85" cy="10" rx="7" ry="3" transform="rotate(-15 85 10)"/></svg>
+
+    <div class="gallery" id="gallery">
+      <figure data-full=""><figcaption>Add photo 1</figcaption></figure>
+      <figure data-full=""><figcaption>Add photo 2</figcaption></figure>
+      <figure data-full=""><figcaption>Add photo 3</figcaption></figure>
+      <figure data-full=""><figcaption>Add photo 4</figcaption></figure>
+      <figure data-full=""><figcaption>Add photo 5</figcaption></figure>
+      <figure data-full=""><figcaption>Add photo 6</figcaption></figure>
+      <figure data-full=""><figcaption>Add photo 7</figcaption></figure>
+      <figure data-full=""><figcaption>Add photo 8</figcaption></figure>
+    </div>
+    <p class="photo-note">These tiles are placeholders — replace each &lt;figure&gt; with an &lt;img src="your-photo.jpg"&gt; to fill the gallery. Click any filled tile to open it full-size.</p>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<!-- ================= SCHEDULE ================= -->
+<section id="schedule">
+  <div class="narrow">
+    <p class="eyebrow center">Schedule</p>
+    <h2 class="center" style="font-size:2.2rem; margin-top:0.5rem;">The day of</h2>
+    <svg class="sprig" viewBox="0 0 120 30"><path d="M5 15 C 30 5, 90 25, 115 15"/><ellipse class="leaf" cx="35" cy="10" rx="7" ry="3" transform="rotate(-20 35 10)"/><ellipse class="leaf" cx="60" cy="20" rx="7" ry="3" transform="rotate(15 60 20)"/><ellipse class="leaf" cx="85" cy="10" rx="7" ry="3" transform="rotate(-15 85 10)"/></svg>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">3:30 PM</div>
+        <div class="tl-title">Guests arrive</div>
+        <div class="tl-desc">Please arrive at the garden entrance a little before the ceremony begins. Seating is open.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">4:00 PM</div>
+        <div class="tl-title">Ceremony</div>
+        <div class="tl-desc">In the garden at Delicious — details on parking and arrival to follow.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">5:00 PM</div>
+        <div class="tl-title">Cocktail hour</div>
+        <div class="tl-desc">Drinks and light bites on the lawn while we take photos.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">6:30 PM</div>
+        <div class="tl-title">Dinner &amp; toasts</div>
+        <div class="tl-desc">Seated dinner, followed by a few words from those closest to us.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">8:30 PM</div>
+        <div class="tl-title">Dancing</div>
+        <div class="tl-desc">The night winds down under string lights — stay as late as you like.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQS ================= -->
+<section id="faqs" class="alt">
+  <div class="narrow">
+    <p class="eyebrow center">FAQs</p>
+    <h2 class="center" style="font-size:2.2rem; margin-top:0.5rem;">Good to know</h2>
+    <svg class="sprig" viewBox="0 0 120 30"><path d="M5 15 C 30 5, 90 25, 115 15"/><ellipse class="leaf" cx="35" cy="10" rx="7" ry="3" transform="rotate(-20 35 10)"/><ellipse class="leaf" cx="60" cy="20" rx="7" ry="3" transform="rotate(15 60 20)"/><ellipse class="leaf" cx="85" cy="10" rx="7" ry="3" transform="rotate(-15 85 10)"/></svg>
+
+    <div>
+      <details class="faq-item">
+        <summary>What should I wear?</summary>
+        <p>Garden party attire — think light fabrics and flat or block-heeled shoes, since the ceremony and reception are on grass.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is there parking at the venue?</summary>
+        <p>Add details about parking availability, nearby lots, or recommended ride-share drop-off points.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are children welcome?</summary>
+        <p>Let guests know your policy on kids here — and mention it on their invitation too, so there's no confusion.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if it rains?</summary>
+        <p>Describe your backup plan — a covered tent, an indoor space, or how guests will be notified of changes.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Where should I stay?</summary>
+        <p>List a couple of nearby hotels or a room block, plus how far they are from the venue.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REGISTRY ================= -->
+<section id="registry">
+  <div class="inner">
+    <p class="eyebrow center">Registry</p>
+    <h2 class="center" style="font-size:2.2rem; margin-top:0.5rem;">A few thoughts</h2>
+    <svg class="sprig" viewBox="0 0 120 30"><path d="M5 15 C 30 5, 90 25, 115 15"/><ellipse class="leaf" cx="35" cy="10" rx="7" ry="3" transform="rotate(-20 35 10)"/><ellipse class="leaf" cx="60" cy="20" rx="7" ry="3" transform="rotate(15 60 20)"/><ellipse class="leaf" cx="85" cy="10" rx="7" ry="3" transform="rotate(-15 85 10)"/></svg>
+    <p class="narrow center" style="margin:0 auto 2.5rem;">Your presence is truly the only gift we need. For those who'd still like to give something, we've put together a small registry below.</p>
+
+    <div class="registry-grid">
+      <div class="registry-card">
+        <h3>Home Registry</h3>
+        <p>For the kitchen and everyday things</p>
+        <a class="btn" href="#" target="_blank" rel="noopener">View Registry</a>
+      </div>
+      <div class="registry-card">
+        <h3>Honeymoon Fund</h3>
+        <p>Help send us off on our first trip as newlyweds</p>
+        <a class="btn" href="#" target="_blank" rel="noopener">Contribute</a>
+      </div>
+      <div class="registry-card">
+        <h3>Experiences</h3>
+        <p>Classes, dinners, and adventures we'd love to try</p>
+        <a class="btn" href="#" target="_blank" rel="noopener">View List</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RSVP ================= -->
+<section id="rsvp" class="alt">
+  <div class="narrow">
+    <p class="eyebrow center">RSVP</p>
+    <h2 class="center" style="font-size:2.2rem; margin-top:0.5rem;">Join us</h2>
+    <svg class="sprig" viewBox="0 0 120 30"><path d="M5 15 C 30 5, 90 25, 115 15"/><ellipse class="leaf" cx="35" cy="10" rx="7" ry="3" transform="rotate(-20 35 10)"/><ellipse class="leaf" cx="60" cy="20" rx="7" ry="3" transform="rotate(15 60 20)"/><ellipse class="leaf" cx="85" cy="10" rx="7" ry="3" transform="rotate(-15 85 10)"/></svg>
+    <p class="center" style="margin-bottom:2rem;">Kindly reply by <em>September 1, 2026</em></p>
+
+    <form id="rsvpForm">
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <fieldset>
+        <legend>Will you attend?</legend>
+        <label class="radio-opt"><input type="radio" name="attending" value="yes" checked> Joyfully accept</label>
+        <label class="radio-opt"><input type="radio" name="attending" value="no"> Regretfully decline</label>
+      </fieldset>
+      <div class="field">
+        <label for="guests">Number attending (including you)</label>
+        <input type="number" id="guests" name="guests" min="1" max="6" value="1">
+      </div>
+      <div class="field">
+        <label for="meal">Meal preference</label>
+        <select id="meal" name="meal">
+          <option value="no-preference">No preference</option>
+          <option value="meat">Meat</option>
+          <option value="fish">Fish</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="vegan">Vegan</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Message for the couple (optional)</label>
+        <textarea id="message" name="message"></textarea>
+      </div>
+      <button type="submit">Send RSVP</button>
+    </form>
+
+    <div id="rsvp-success">
+      <h3 style="margin-bottom:0.5rem;">Thank you!</h3>
+      <p>Your RSVP has been recorded. We can't wait to celebrate with you.</p>
+    </div>
+
+    <p class="rsvp-note center">Note: this form currently only confirms on-screen. To actually collect responses, connect it to a service like Formspree, Google Forms, or your own backend — replace the JavaScript submit handler near the bottom of this file with a fetch() call to that endpoint.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="brand">Billy &amp; Koby</div>
+  <p>October 17, 2026 &middot; Delicious &middot; St. Petersburg, Florida</p>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navList = document.getElementById('navList');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navList.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Keep header/footer heights in sync so the page area between them is exact
+  const headerEl = document.querySelector('header');
+  const footerEl = document.querySelector('footer');
+  const syncChromeHeights = () => {
+    document.documentElement.style.setProperty('--header-h', headerEl.offsetHeight + 'px');
+    document.documentElement.style.setProperty('--footer-h', footerEl.offsetHeight + 'px');
+  };
+  syncChromeHeights();
+  window.addEventListener('resize', syncChromeHeights);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(syncChromeHeights);
+  }
+
+  // Page switching — sections only change when a nav tab is clicked
+  const pages = document.querySelectorAll('#pages > section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  const pageIds = Array.from(pages).map(p => p.id);
+
+  const showPage = (id) => {
+    if (!pageIds.includes(id)) id = 'home';
+    pages.forEach(sec => {
+      const isActive = sec.id === id;
+      sec.classList.toggle('active', isActive);
+      if (isActive) sec.scrollTop = 0;
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+    });
+    navList.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  };
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = link.getAttribute('href').slice(1);
+      if (history.pushState) history.pushState(null, '', '#' + id);
+      showPage(id);
+    });
+  });
+
+  window.addEventListener('hashchange', () => {
+    showPage(location.hash ? location.hash.slice(1) : 'home');
+  });
+
+  showPage(location.hash ? location.hash.slice(1) : 'home');
+
+  // Lightbox (only opens tiles that have a real image set via data-full)
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  document.querySelectorAll('#gallery figure').forEach(fig => {
+    fig.addEventListener('click', () => {
+      const full = fig.getAttribute('data-full');
+      const img = fig.querySelector('img');
+      const src = full || (img ? img.src : '');
+      if (!src) return;
+      lightboxImg.src = src;
+      lightbox.classList.add('open');
+    });
+  });
+  document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
+  // RSVP form (front-end only — see note in the RSVP section)
+  document.getElementById('rsvpForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('rsvp-success').classList.add('show');
+  });
+</script>
+
+</body>
+</html>
