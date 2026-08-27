@@ -268,7 +268,7 @@
     content:''; position:absolute; left:-2.2rem; top:5px; width:10px; height:10px; border-radius:50%;
     background:var(--cream); border:2px solid var(--olive);
   }
-  .tl-time{font-family:var(--sans); letter-spacing:0.15em; text-transform:uppercase; font-size:0.75rem; color:var(--oak);}
+  .tl-time{font-family:var(--sans); letter-spacing:0.12em; text-transform:uppercase; font-size:1.05rem; font-weight:700; color:var(--moose);}
   .tl-title{font-family:var(--serif); font-size:1.3rem; color:var(--moose); margin:0.2rem 0 0.3rem;}
   .tl-desc{font-size:0.92rem; color:var(--havana); max-width:48ch;}
 
@@ -285,6 +285,11 @@
   }
   .faq-item[open] summary::after{transform:rotate(45deg);}
   .faq-item p{padding-bottom:1.4rem; color:var(--havana); font-size:0.95rem; max-width:60ch;}
+  .reco-list{list-style:none; padding:0 0 1.4rem; display:grid; gap:0.55rem; max-width:60ch;}
+  .reco-list li{font-size:0.95rem; color:var(--havana);}
+  .reco-list a{color:var(--olive); border-bottom:1px solid transparent; transition:border-color 0.2s ease;}
+  .reco-list a:hover{border-color:var(--olive);}
+  .reco-subhead{color:var(--oak); font-style:italic; font-family:var(--serif); font-size:1.2rem; margin-top:0.3rem;}
 
   /* ---------- Registry ---------- */
   .registry-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.4rem;}
@@ -350,6 +355,7 @@
         <li><a href="#photos">Photos</a></li>
         <li><a href="#schedule">Schedule</a></li>
         <li><a href="#faqs">FAQs</a></li>
+        <li><a href="#recommendations">Recommendations</a></li>
         <li><a href="#registry">Registry</a></li>
         <li><a href="#rsvp">RSVP</a></li>
       </ul>
@@ -720,29 +726,24 @@
 
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-time">3:30 PM</div>
-        <div class="tl-title">Guests arrive</div>
-        <div class="tl-desc">Please arrive at the garden entrance a little before the ceremony begins. Seating is open.</div>
+        <div class="tl-time">Friday, October 16</div>
+        <div class="tl-title">Casual drinks &amp; a pier walk</div>
+        <div class="tl-desc">Casual drinks and walking the St. Pete Pier on Friday night for those interested. Text Billy or Koby for a specific meeting spot and time.</div>
       </div>
       <div class="tl-item">
-        <div class="tl-time">4:00 PM</div>
-        <div class="tl-title">Ceremony</div>
-        <div class="tl-desc">In the garden at Delicious — details on parking and arrival to follow.</div>
+        <div class="tl-time">Saturday, October 17 &middot; 5–8 PM</div>
+        <div class="tl-title">The Main Event — Delicious Wine Bar</div>
+        <div class="tl-desc">The main celebration!! If you must prioritize anything, please make it this. Enjoy wine and small bites, and raise a glass with the grooms — the first round is on Koby &amp; William.</div>
       </div>
       <div class="tl-item">
-        <div class="tl-time">5:00 PM</div>
-        <div class="tl-title">Cocktail hour</div>
-        <div class="tl-desc">Drinks and light bites on the lawn while we take photos.</div>
+        <div class="tl-time">Saturday night</div>
+        <div class="tl-title">Afterparty</div>
+        <div class="tl-desc">Following the main celebration at Delicious Wine Bar, join in on some bar hopping fun afterward — 3 Daughters Brewery, Bayboro Brewery, Lost &amp; Found, and Cocktails are all potential spots we may bounce to and from. Let the party continue into the night!!</div>
       </div>
       <div class="tl-item">
-        <div class="tl-time">6:30 PM</div>
-        <div class="tl-title">Dinner &amp; toasts</div>
-        <div class="tl-desc">Seated dinner, followed by a few words from those closest to us.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-time">8:30 PM</div>
-        <div class="tl-title">Dancing</div>
-        <div class="tl-desc">The night winds down under string lights — stay as late as you like.</div>
+        <div class="tl-time">Sunday, October 18</div>
+        <div class="tl-title">Beach day</div>
+        <div class="tl-desc">Pack a swimsuit and join Billy and Koby for a relaxing day on the beach, taking time to wind down from the beautiful celebration from the day before. Text Billy or Koby for specifics on which beach to meet at!</div>
       </div>
     </div>
   </div>
@@ -775,6 +776,155 @@
       <details class="faq-item">
         <summary>Where should I stay?</summary>
         <p>List a couple of nearby hotels or a room block, plus how far they are from the venue.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RECOMMENDATIONS ================= -->
+<section id="recommendations">
+  <div class="narrow">
+    <p class="eyebrow center">Recommendations</p>
+    <h2 class="center" style="font-size:2rem; margin-top:0.5rem;">St Pete Fav's</h2>
+    <svg class="sprig" viewBox="0 0 120 30" style="margin:0.7rem auto;"><path d="M5 15 C 30 5, 90 25, 115 15"/><ellipse class="leaf" cx="35" cy="10" rx="7" ry="3" transform="rotate(-20 35 10)"/><ellipse class="leaf" cx="60" cy="20" rx="7" ry="3" transform="rotate(15 60 20)"/><ellipse class="leaf" cx="85" cy="10" rx="7" ry="3" transform="rotate(-15 85 10)"/></svg>
+
+    <div>
+      <details class="faq-item">
+        <summary>Things to do</summary>
+        <ul class="reco-list">
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Imagine+Museum+St+Petersburg+FL" target="_blank" rel="noopener">Imagine Museum</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Sunken+Gardens+St+Petersburg+FL" target="_blank" rel="noopener">Sunken Gardens</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=The+Dali+Museum+St+Petersburg+FL" target="_blank" rel="noopener">Dali Museum</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=The+James+Museum+St+Petersburg+FL" target="_blank" rel="noopener">James Museum</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Floridarama+St+Petersburg+FL" target="_blank" rel="noopener">Floridarama</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Apollo+Beach+Manatee+Viewing+Center+FL" target="_blank" rel="noopener">Manatee sighting at Apollo Beach</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Vinoy+Park+St+Petersburg+FL" target="_blank" rel="noopener">Picnic, hammock, or walk at Vinoy Park</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=St+Pete+Pier+St+Petersburg+FL" target="_blank" rel="noopener">Walk the pier — dolphin sighting</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Central+Avenue+St+Petersburg+FL" target="_blank" rel="noopener">Shop down Central Ave</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Jet+Ski+Rental+St+Petersburg+FL" target="_blank" rel="noopener">Rent jet skis</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Paddleboard+Rental+St+Petersburg+FL" target="_blank" rel="noopener">Paddle boarding</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Topgolf+Tampa+FL" target="_blank" rel="noopener">Top Golf</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=International+Plaza+Tampa+FL" target="_blank" rel="noopener">International Mall (Tampa)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Starlight+Dinner+Cruises+St+Petersburg+FL" target="_blank" rel="noopener">Starlight Dinner Cruises</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Johns+Pass+Madeira+Beach+FL" target="_blank" rel="noopener">Explore Johns Pass</a></li>
+        </ul>
+      </details>
+
+      <details class="faq-item">
+        <summary>Beaches</summary>
+        <ul class="reco-list">
+          <li><a href="https://www.google.com/maps/search/?api=1&query=St+Pete+Beach+FL" target="_blank" rel="noopener">St Pete Beach / Upham / Secret Garden</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Caddys+Sunset+Beach+FL" target="_blank" rel="noopener">Sunset Beach / Caddy's</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Pass+a+Grille+Beach+FL" target="_blank" rel="noopener">Passe-a-Grille Beach</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Fort+De+Soto+Park+FL" target="_blank" rel="noopener">Fort De Soto</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Madeira+Beach+FL" target="_blank" rel="noopener">Madeira Beach</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Spa+Beach+Park+St+Petersburg+FL" target="_blank" rel="noopener">Spa Beach Park (bay side / St Pete Pier)</a></li>
+        </ul>
+      </details>
+
+      <details class="faq-item">
+        <summary>Coffee</summary>
+        <ul class="reco-list">
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Bean+Wandering+Coffee+St+Petersburg+FL" target="_blank" rel="noopener">Bean Wandering</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Concrete+Coffee+St+Petersburg+FL" target="_blank" rel="noopener">Concrete Coffee</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Black+Crow+Coffee+St+Petersburg+FL" target="_blank" rel="noopener">Black Crow</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Paradecco+St+Petersburg+FL" target="_blank" rel="noopener">Paradecco</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Cafe+Clementine+St+Petersburg+FL" target="_blank" rel="noopener">Cafe Clementine</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Grove+Surf+Coffee+St+Petersburg+FL" target="_blank" rel="noopener">Grove Surf</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Craft+Kafe+St+Petersburg+FL" target="_blank" rel="noopener">Craft Cafe</a></li>
+        </ul>
+      </details>
+
+      <details class="faq-item">
+        <summary>Brunch</summary>
+        <ul class="reco-list">
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Social+Roost+St+Petersburg+FL" target="_blank" rel="noopener">Social Roost</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Stillwater+Tavern+St+Petersburg+FL" target="_blank" rel="noopener">Stillwater Tavern</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Juno+and+the+Peacock+St+Petersburg+FL" target="_blank" rel="noopener">Juno and the Peacock</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Cassis+American+Brasserie+St+Petersburg+FL" target="_blank" rel="noopener">Cassis</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Birch+and+Vine+St+Petersburg+FL" target="_blank" rel="noopener">Birch and Vine</a></li>
+        </ul>
+      </details>
+
+      <details class="faq-item">
+        <summary>Restaurants</summary>
+        <ul class="reco-list">
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Noble+Crust+St+Petersburg+FL" target="_blank" rel="noopener">Nobel Crust (modern American)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Juno+and+the+Peacock+St+Petersburg+FL" target="_blank" rel="noopener">Juno and the Peacock (modern American)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Olivia+St+Petersburg+FL" target="_blank" rel="noopener">Olivia (upscale modern Italian)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Stillwater+Tavern+St+Petersburg+FL" target="_blank" rel="noopener">Stillwater (American)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Frescos+St+Pete+Beach+FL" target="_blank" rel="noopener">Frescos (seafood)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Perrys+Porch+St+Pete+Pier+FL" target="_blank" rel="noopener">Perry's Porch (small bites on the pier)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Doc+Fords+St+Pete+Pier+FL" target="_blank" rel="noopener">Doc Ford's (seafood on the pier)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Belle+Brava+St+Petersburg+FL" target="_blank" rel="noopener">Belle Brava (Italian)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Fortu+St+Petersburg+FL" target="_blank" rel="noopener">Fortu</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Mullets+Fish+Camp+St+Petersburg+FL" target="_blank" rel="noopener">Mullet's Fish Camp (seafood)</a></li>
+        </ul>
+      </details>
+
+      <details class="faq-item">
+        <summary>Happy Hour</summary>
+        <ul class="reco-list">
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Bacchus+St+Petersburg+FL" target="_blank" rel="noopener">Bacchus (4–6)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Stillwater+Tavern+St+Petersburg+FL" target="_blank" rel="noopener">Stillwater (4–7)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Crafty+Squirrel+St+Petersburg+FL" target="_blank" rel="noopener">Crafty Squirrel (3–7)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=The+Galley+St+Petersburg+FL" target="_blank" rel="noopener">The Galley (3–6)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Oyster+Bar+St+Petersburg+FL" target="_blank" rel="noopener">Oyster Bar (4–6)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Wheres+Jube+St+Petersburg+FL" target="_blank" rel="noopener">Where's Jube (3–6)</a></li>
+        </ul>
+      </details>
+
+      <details class="faq-item">
+        <summary>Cocktail Bars</summary>
+        <ul class="reco-list">
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Saigon+Blond+St+Petersburg+FL" target="_blank" rel="noopener">Saigon Blond</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Mandarin+Hide+St+Petersburg+FL" target="_blank" rel="noopener">Mandarin Hide</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Canopy+Rooftop+St+Petersburg+FL" target="_blank" rel="noopener">Canopy Rooftop</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Flute+and+Dram+St+Petersburg+FL" target="_blank" rel="noopener">Flute and Dram</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Tampa+Bay+Drinkery+Tampa+FL" target="_blank" rel="noopener">Tampa Bay Drinkery</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Teak+St+Pete+Pier+FL" target="_blank" rel="noopener">Teak at the Pier</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Barmezzo+St+Petersburg+FL" target="_blank" rel="noopener">Barmezzo</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Pelican+Pub+St+Petersburg+FL" target="_blank" rel="noopener">Pelican Pub</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Crafty+Squirrel+St+Petersburg+FL" target="_blank" rel="noopener">Crafty Squirrel</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Oyster+Bar+St+Petersburg+FL" target="_blank" rel="noopener">Oyster Bar</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Trophy+Fish+St+Pete+Beach+FL" target="_blank" rel="noopener">Trophy Fish</a></li>
+        </ul>
+      </details>
+
+      <details class="faq-item">
+        <summary>Gay Bars</summary>
+        <ul class="reco-list">
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Cocktails+St+Petersburg+FL" target="_blank" rel="noopener">Cocktails</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Enigma+St+Petersburg+FL" target="_blank" rel="noopener">Enigma</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Bradleys+Tampa+FL" target="_blank" rel="noopener">Bradleys (Tampa)</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Disco+Pony+Tampa+FL" target="_blank" rel="noopener">Disco Pony (Tampa)</a></li>
+          <li>TBD</li>
+        </ul>
+      </details>
+
+      <details class="faq-item">
+        <summary>Dive Bars</summary>
+        <ul class="reco-list">
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Five+Bucks+Bar+St+Petersburg+FL" target="_blank" rel="noopener">Five Bucks</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Bar+548+St+Petersburg+FL" target="_blank" rel="noopener">Bar 548</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Wheres+Jube+St+Petersburg+FL" target="_blank" rel="noopener">Where's Jube</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Localz+St+Petersburg+FL" target="_blank" rel="noopener">Localz</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Fergs+Sports+Bar+St+Petersburg+FL" target="_blank" rel="noopener">Fergs</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Red+Tiki+St+Petersburg+FL" target="_blank" rel="noopener">Red Tiki</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=The+Galley+St+Petersburg+FL" target="_blank" rel="noopener">Galley</a></li>
+        </ul>
+      </details>
+
+      <details class="faq-item">
+        <summary>DJ / Dance Bars</summary>
+        <ul class="reco-list">
+          <li><a href="https://www.google.com/maps/search/?api=1&query=My+Rich+Uncle+St+Petersburg+FL" target="_blank" rel="noopener">My Rich Uncle</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Goodnight+Johnny+Boy+St+Petersburg+FL" target="_blank" rel="noopener">Good Night Johnny Boy</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Dirty+Laundry+St+Petersburg+FL" target="_blank" rel="noopener">Dirty Laundry</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Saigon+Blond+St+Petersburg+FL" target="_blank" rel="noopener">Saigon Blond</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Easy+Tiger+St+Petersburg+FL" target="_blank" rel="noopener">Easy Tiger</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Siren+St+Petersburg+FL" target="_blank" rel="noopener">Siren</a></li>
+        </ul>
       </details>
     </div>
   </div>
