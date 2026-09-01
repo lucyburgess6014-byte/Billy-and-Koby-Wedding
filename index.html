@@ -232,7 +232,7 @@
   .gallery-row{display:flex; justify-content:center; gap:0.7rem; margin-top:0.7rem;}
   .gallery-row:first-child{margin-top:0;}
   .gallery-row figure{
-    position:relative; width:clamp(92px, 14vw, 172px); aspect-ratio:1/1; overflow:hidden; border-radius:2px;
+    position:relative; width:clamp(80px, 12vw, 150px); aspect-ratio:1/1; overflow:hidden; border-radius:2px;
     background:linear-gradient(135deg, var(--ceramic), var(--ash-blonde));
     cursor:pointer; flex-shrink:0;
   }
@@ -241,13 +241,13 @@
   @media (max-width:600px){
     .gallery-row{gap:0.4rem; margin-top:0.4rem;}
     .gallery-row figure{
-      width:calc((100vw - 3rem - 1.2rem) / 4);
+      width:calc((100vw - 3rem - 1.6rem) / 5);
       flex-shrink:0;
     }
   }
   @media (max-width:360px){
     .gallery-row figure{
-      width:calc((100vw - 2.4rem - 1.2rem) / 4);
+      width:calc((100vw - 2.4rem - 1.6rem) / 5);
     }
   }
   .lightbox{
@@ -279,17 +279,11 @@
 
   /* ---------- FAQ ---------- */
   .faq-grid{
-    display:grid; grid-template-columns:1fr 1fr; gap:0 2.5rem; align-items:start;
+    display:grid; grid-template-columns:1fr; gap:0; align-items:start;
   }
-  .faq-grid-wide{grid-template-columns:repeat(3, 1fr); gap:0 1.8rem;}
+  .faq-grid-wide{grid-template-columns:1fr;}
   .faq-item{border-bottom:1px solid var(--ceramic);}
   .faq-item[open]{grid-column:1 / -1;}
-  @media (max-width:900px){
-    .faq-grid-wide{grid-template-columns:1fr 1fr;}
-  }
-  @media (max-width:640px){
-    .faq-grid, .faq-grid-wide{grid-template-columns:1fr;}
-  }
   .faq-item summary{
     list-style:none; cursor:pointer; padding:1.3rem 2rem 1.3rem 0; position:relative;
     font-family:var(--serif); font-size:1.15rem; color:var(--moose);
@@ -757,12 +751,22 @@
         <figure><img src="photos/engagement-1.jpg" alt="Billy and Koby, engagement photo 1" loading="lazy"></figure>
         <figure><img src="photos/engagement-2.jpg" alt="Billy and Koby, engagement photo 2" loading="lazy"></figure>
         <figure><img src="photos/engagement-3.jpg" alt="Billy and Koby, engagement photo 3" loading="lazy"></figure>
-      </div>
-      <div class="gallery-row">
         <figure><img src="photos/engagement-4.jpg" alt="Billy and Koby, engagement photo 4" loading="lazy"></figure>
         <figure><img src="photos/engagement-5.jpg" alt="Billy and Koby, engagement photo 5" loading="lazy"></figure>
+      </div>
+      <div class="gallery-row">
         <figure><img src="photos/engagement-6.jpg" alt="Billy and Koby, engagement photo 6" loading="lazy"></figure>
         <figure><img src="photos/engagement-7.jpg" alt="Billy and Koby, engagement photo 7" loading="lazy"></figure>
+        <figure><img src="photos/engagement-8.jpg" alt="Billy and Koby, engagement photo 8" loading="lazy"></figure>
+        <figure><img src="photos/engagement-9.jpg" alt="Billy and Koby, engagement photo 9" loading="lazy"></figure>
+        <figure><img src="photos/engagement-10.jpg" alt="Billy and Koby, engagement photo 10" loading="lazy"></figure>
+      </div>
+      <div class="gallery-row">
+        <figure><img src="photos/engagement-11.jpg" alt="Billy and Koby, engagement photo 11" loading="lazy"></figure>
+        <figure><img src="photos/engagement-12.jpg" alt="Billy and Koby, engagement photo 12" loading="lazy"></figure>
+        <figure><img src="photos/engagement-13.jpg" alt="Billy and Koby, engagement photo 13" loading="lazy"></figure>
+        <figure><img src="photos/engagement-14.jpg" alt="Billy and Koby, engagement photo 14" loading="lazy"></figure>
+        <figure><img src="photos/engagement-15.jpg" alt="Billy and Koby, engagement photo 15" loading="lazy"></figure>
       </div>
     </div>
   </div>
