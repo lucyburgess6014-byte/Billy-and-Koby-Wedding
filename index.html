@@ -213,16 +213,20 @@
   .hero-note{margin-top:0.9rem; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--oak); opacity:0.8;}
 
   /* ---------- Our Story ---------- */
+  .story-columns{display:grid; grid-template-columns:1fr 1fr; gap:0 2.8rem;}
+  @media (max-width:760px){
+    .story-columns{grid-template-columns:1fr; gap:0;}
+  }
   .story-item{
-    display:grid; grid-template-columns:90px 1fr; gap:1.5rem; margin-bottom:2.6rem; position:relative;
+    display:grid; grid-template-columns:98px 1fr; gap:1.1rem; margin-bottom:1.5rem; position:relative;
   }
   .story-item:not(:last-child)::before{
-    content:''; position:absolute; left:44px; top:2.4rem; bottom:-2.6rem; width:1px;
+    content:''; position:absolute; left:44px; top:1.6rem; bottom:-1.5rem; width:1px;
     background:var(--ceramic);
   }
-  .story-year{font-family:var(--serif); font-style:italic; color:var(--olive); font-size:1.1rem; text-align:right; padding-top:0.15rem;}
-  .story-text h3{font-size:1.25rem; margin-bottom:0.4rem;}
-  .story-text p{color:var(--havana); font-size:0.97rem; max-width:52ch;}
+  .story-year{font-family:var(--serif); font-style:italic; color:var(--olive); font-size:0.85rem; text-align:right; padding-top:0.1rem; line-height:1.25;}
+  .story-text h3{font-size:1.05rem; margin-bottom:0.25rem; color:var(--moose); font-family:var(--serif); font-weight:500;}
+  .story-text p{color:var(--havana); font-size:0.85rem; max-width:44ch; line-height:1.45;}
 
   /* ---------- Photos ---------- */
   .gallery-row{display:flex; justify-content:center; gap:0.7rem; margin-top:0.7rem;}
@@ -274,7 +278,14 @@
   .tl-desc{font-size:0.92rem; color:var(--havana); max-width:48ch;}
 
   /* ---------- FAQ ---------- */
+  .faq-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:0 2.5rem; align-items:start;
+  }
   .faq-item{border-bottom:1px solid var(--ceramic);}
+  .faq-item[open]{grid-column:1 / -1;}
+  @media (max-width:640px){
+    .faq-grid{grid-template-columns:1fr;}
+  }
   .faq-item summary{
     list-style:none; cursor:pointer; padding:1.3rem 2rem 1.3rem 0; position:relative;
     font-family:var(--serif); font-size:1.15rem; color:var(--moose);
@@ -678,31 +689,74 @@
 </section>
 
 <!-- ================= OUR STORY ================= -->
-<section id="story">
-  <div class="narrow">
+<section id="story" style="justify-content:flex-start; padding-top:1.75rem;">
+  <div class="inner">
     <p class="eyebrow center">Our Story</p>
-    <h2 class="center" style="font-size:2.2rem; margin-top:0.5rem;">How we got here</h2>
-    <svg class="sprig" viewBox="0 0 120 30"><path d="M5 15 C 30 5, 90 25, 115 15"/><ellipse class="leaf" cx="35" cy="10" rx="7" ry="3" transform="rotate(-20 35 10)"/><ellipse class="leaf" cx="60" cy="20" rx="7" ry="3" transform="rotate(15 60 20)"/><ellipse class="leaf" cx="85" cy="10" rx="7" ry="3" transform="rotate(-15 85 10)"/></svg>
+    <h2 class="center" style="font-size:1.9rem; margin-top:0.3rem;">How we got here</h2>
+    <svg class="sprig" viewBox="0 0 120 30" style="margin:0.5rem auto;"><path d="M5 15 C 30 5, 90 25, 115 15"/><ellipse class="leaf" cx="35" cy="10" rx="7" ry="3" transform="rotate(-20 35 10)"/><ellipse class="leaf" cx="60" cy="20" rx="7" ry="3" transform="rotate(15 60 20)"/><ellipse class="leaf" cx="85" cy="10" rx="7" ry="3" transform="rotate(-15 85 10)"/></svg>
+    <p class="narrow center" style="margin:0.5rem auto 1.2rem; font-size:0.85rem; color:var(--havana);">What started as one night on a dance floor turned into a life neither of us could have planned. In just a few years, we went from two strangers to boyfriends, roommates, dog dads, and now—fiancés. Looking back, it's the little moments that feel the most extraordinary.</p>
 
-    <div class="story-item">
-      <div class="story-year">2019</div>
-      <div class="story-text">
-        <h3>How we met</h3>
-        <p>Replace this with the story of your first meeting — where it happened and what you each remember most about that day.</p>
+    <div class="story-columns">
+      <div class="story-col">
+        <div class="story-item">
+          <div class="story-year">June 18,<br>2022</div>
+          <div class="story-text">
+            <h3>It Started on the Dance Floor</h3>
+            <p>We met on the dance floor on June 18th, 2022 — the first night William ever came to Downtown St. Pete. Neither of us knew it then, but that night would become the beginning of something much bigger than either of us expected.</p>
+          </div>
+        </div>
+        <div class="story-item">
+          <div class="story-year">July 5,<br>2022</div>
+          <div class="story-text">
+            <h3>The First Commitment</h3>
+            <p>A few weeks later, we made it official and asked each other to be boyfriends. We had no idea where this was going—we just knew we wanted to find out together.</p>
+          </div>
+        </div>
+        <div class="story-item">
+          <div class="story-year">February 3,<br>2023</div>
+          <div class="story-text">
+            <h3>Ollie Joins the Family</h3>
+            <p>Then came Ollie. Our black Lab became our first little adventure as a family, filling our home with muddy paws, unconditional love, and more energy than we could have imagined.</p>
+          </div>
+        </div>
+        <div class="story-item">
+          <div class="story-year">March 12,<br>2023</div>
+          <div class="story-text">
+            <h3>Home Is Wherever We Are</h3>
+            <p>We moved in together and started creating a life under the same roof. Somewhere between the ordinary days, shared routines, and countless memories, we realized we weren't just building a home—we were building a life.</p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="story-item">
-      <div class="story-year">2022</div>
-      <div class="story-text">
-        <h3>Building a life together</h3>
-        <p>A note about moving in together, a memorable trip, or the moment you knew this was it — swap in your own milestone here.</p>
-      </div>
-    </div>
-    <div class="story-item">
-      <div class="story-year">2026</div>
-      <div class="story-text">
-        <h3>The proposal</h3>
-        <p>Tell guests where and how the proposal happened — the setting, the surprise, the first calls you made afterward.</p>
+
+      <div class="story-col">
+        <div class="story-item">
+          <div class="story-year">June 26,<br>2025</div>
+          <div class="story-text">
+            <h3>Bennie Makes Four</h3>
+            <p>Two years later, our family grew again when we rescued Bennie, our Goldendoodle. With Ollie and Bennie by our side, our little family somehow became even fuller, louder, and more chaotic.</p>
+          </div>
+        </div>
+        <div class="story-item">
+          <div class="story-year">July 3,<br>2026</div>
+          <div class="story-text">
+            <h3>The First "Yes"</h3>
+            <p>Billy asked Koby to marry him. It was the easiest question ever answered and the beginning of our favorite chapter yet.</p>
+          </div>
+        </div>
+        <div class="story-item">
+          <div class="story-year">August 21,<br>2026</div>
+          <div class="story-text">
+            <h3>Then Koby Had a Question, Too</h3>
+            <p>And because one proposal apparently wasn't enough, Koby asked Billy to marry him, too. Two proposals. Two very happy "yeses." One forever.</p>
+          </div>
+        </div>
+        <div class="story-item">
+          <div class="story-year">Forever</div>
+          <div class="story-text">
+            <h3>The Best Is Still Ahead</h3>
+            <p>From a dance floor to a shared home, from two to four paws, and from boyfriends to fiancés, every chapter has led us here. We've grown, laughed, traveled, built a family, and chosen each other again and again. And now, we get to spend the rest of our lives doing exactly that. We can't wait to see what comes next!</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -770,32 +824,67 @@
 </section>
 
 <!-- ================= FAQS ================= -->
-<section id="faqs" class="alt">
-  <div class="narrow">
+<section id="faqs" class="alt" style="justify-content:flex-start; padding-top:1.75rem;">
+  <div class="inner">
     <p class="eyebrow center">FAQs</p>
     <h2 class="center" style="font-size:2.2rem; margin-top:0.5rem;">Good to know</h2>
     <svg class="sprig" viewBox="0 0 120 30"><path d="M5 15 C 30 5, 90 25, 115 15"/><ellipse class="leaf" cx="35" cy="10" rx="7" ry="3" transform="rotate(-20 35 10)"/><ellipse class="leaf" cx="60" cy="20" rx="7" ry="3" transform="rotate(15 60 20)"/><ellipse class="leaf" cx="85" cy="10" rx="7" ry="3" transform="rotate(-15 85 10)"/></svg>
 
-    <div>
+    <div class="faq-grid">
       <details class="faq-item">
         <summary>What should I wear?</summary>
-        <p>Garden party attire — think light fabrics and flat or block-heeled shoes, since the ceremony and reception are on grass.</p>
+        <p class="reco-subhead">Garden Party &middot; Semi-Formal</p>
+        <p>Think romantic garden party meets early autumn soirée. 🌿🍂 We're envisioning varieties of warm earth tones, rich autumn colors, elevated fabrics, and polished garden-party looks.</p>
+        <p>Please refrain from wearing white or denim clothing. We aim for a diverse color palette that is fun and avoids formal black ensembles. No black suits or tuxes please.</p>
+        <p>Need a little inspiration? Check out our vision board for the colors, textures, and overall vibe we have in mind. We can't wait to see how you interpret it!</p>
       </details>
+
       <details class="faq-item">
-        <summary>Is there parking at the venue?</summary>
-        <p>Add details about parking availability, nearby lots, or recommended ride-share drop-off points.</p>
+        <summary>What are the plans for Friday night?</summary>
+        <p class="reco-subhead">Welcome Party &middot; Friday at 6:00 PM</p>
+        <p>Let's kick off the wedding weekend together! We'll meet downtown at the St. Pete Pier for drinks, small bites, and plenty of time to mingle before the big day. Bring your walking shoes!</p>
+        <p>The couple will wrap up around 10:00 PM, giving everyone plenty of time to relax, explore, or continue the evening on their own.</p>
+        <p>Looking for somewhere to go? Check out the Recommendations tab for some of William &amp; Koby's favorite St. Pete restaurants, bars, and spots.</p>
       </details>
+
       <details class="faq-item">
-        <summary>Are children welcome?</summary>
-        <p>Let guests know your policy on kids here — and mention it on their invitation too, so there's no confusion.</p>
+        <summary>Is there an after-party on Saturday?</summary>
+        <p class="reco-subhead">Absolutely!! 🥂</p>
+        <p>Once our celebration wraps up at 8:00pm, we'll be heading downtown St. Pete to keep the celebrating going.</p>
       </details>
+
       <details class="faq-item">
-        <summary>What if it rains?</summary>
-        <p>Describe your backup plan — a covered tent, an indoor space, or how guests will be notified of changes.</p>
+        <summary>What's happening on Sunday?</summary>
+        <p class="reco-subhead">Beach Day &middot; Sunday at 11:00 AM</p>
+        <p>We're ending the weekend exactly how we think a Florida engagement weekend should end: at the beach. ☀️🌴</p>
+        <p>Join us at Caddy's Treasure Island at 11:00 AM for a relaxed beach day with everyone before we say our final goodbyes.</p>
+        <p>Come in your beachwear, bring your sunscreen, and stay as long as you'd like!</p>
       </details>
+
+      <details class="faq-item">
+        <summary>Is there a registry?</summary>
+        <p class="reco-subhead">No registry — just your presence. ❤️</p>
+        <p>Having you with us to celebrate is truly the greatest gift we could ask for.</p>
+        <p>We won't have a traditional registry. If you'd like to give us something, we'd be incredibly grateful for a contribution toward our elopement and honeymoon fund as we begin this next chapter together.</p>
+        <p>But truly, your presence means more to us than anything you could give.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What should I do while I'm in St. Pete?</summary>
+        <p class="reco-subhead">Make a weekend out of it!</p>
+        <p>St. Petersburg is a huge part of our story, and we'd love for you to experience some of the places we love most.</p>
+        <p>Visit the Recommendations tab for William &amp; Koby's favorite restaurants, bars, beaches, coffee shops, and local gems.</p>
+        <p>Come for the wedding. Stay for the sunshine.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Where should I fly to?</summary>
+        <p>Tampa (TPA) or St. Petersburg–Clearwater (PIE) airports are both about a 20 minute drive from downtown St. Pete, where most of the festivities are. Ubers are usually cheap and readily available at both airports and around downtown.</p>
+      </details>
+
       <details class="faq-item">
         <summary>Where should I stay?</summary>
-        <p>List a couple of nearby hotels or a room block, plus how far they are from the venue.</p>
+        <p>The fiancés are still finalizing group rates for hotels and/or Airbnb's and will send out options soon! Staying downtown St. Pete or further down Central Avenue will keep you close to most events.</p>
       </details>
     </div>
   </div>
@@ -1071,6 +1160,17 @@
   document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('open'));
   lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
+  // FAQ accordion — keep only one question open at a time
+  document.querySelectorAll('.faq-grid .faq-item').forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        document.querySelectorAll('.faq-grid .faq-item').forEach(other => {
+          if (other !== item) other.open = false;
+        });
+      }
+    });
+  });
 </script>
 
 </body>
