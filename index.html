@@ -316,6 +316,10 @@
   .reco-list a{color:var(--olive); border-bottom:1px solid transparent; transition:border-color 0.2s ease;}
   .reco-list a:hover{border-color:var(--olive);}
   .reco-subhead{color:var(--oak); font-style:italic; font-family:var(--serif); font-size:1.2rem; margin-top:0.3rem;}
+  .reco-note{
+    font-size:0.8rem; letter-spacing:0.02em; color:var(--oak); opacity:0.8; text-align:center;
+    padding:0 1.8rem; margin-bottom:0.7rem; font-style:italic;
+  }
 
   /* ---------- Registry ---------- */
   .registry-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.4rem;}
@@ -696,7 +700,7 @@
     <p class="eyebrow center">Our Story</p>
     <h2 class="center" style="font-size:2.2rem; margin-top:0.5rem;">How we got here</h2>
     <svg class="sprig" viewBox="0 0 120 30"><path d="M5 15 C 30 5, 90 25, 115 15"/><ellipse class="leaf" cx="35" cy="10" rx="7" ry="3" transform="rotate(-20 35 10)"/><ellipse class="leaf" cx="60" cy="20" rx="7" ry="3" transform="rotate(15 60 20)"/><ellipse class="leaf" cx="85" cy="10" rx="7" ry="3" transform="rotate(-15 85 10)"/></svg>
-    <p class="center" style="margin:0.6rem auto 0; font-size:0.92rem; color:var(--havana);">What started as one night on a dance floor turned into a life neither of us could have planned. In just a few years, we went from two strangers to boyfriends, roommates, dog dads, and now—fiancés. Looking back, it's the little moments that feel the most extraordinary.</p>
+    <p class="center" style="margin:0.6rem auto 2rem; font-size:0.92rem; color:var(--havana);">What started as one night on a dance floor turned into a life neither of us could have planned. In just a few years, we went from two strangers to boyfriends, roommates, dog dads, and now—fiancés. Looking back, it's the little moments that feel the most extraordinary.</p>
 
     <div class="timeline">
       <div class="tl-item">
@@ -792,13 +796,13 @@
       <div class="tl-item">
         <div class="tl-time">Friday, October 16</div>
         <div class="tl-title">Casual drinks &amp; a pier walk</div>
-        <div class="tl-desc">Casual drinks and walking the St. Pete Pier on Friday night for those interested. Text Billy or Koby for a specific meeting spot and time.</div>
+        <div class="tl-desc">Casual drinks and walking the St. Pete Pier on Friday night for those interested. Please review the FAQ section for more information regarding Friday night.</div>
       </div>
       <div class="tl-item">
         <div class="tl-time">Saturday, October 17 &middot; 5–8 PM</div>
         <div class="tl-title">The Main Event — Delicious Wine Bar</div>
         <div class="tl-address">420 22nd St S, St. Petersburg, FL 33712</div>
-        <div class="tl-desc">The main celebration! If you must prioritize anything, make sure to attend this full event. The grooms suggest having dinner on your own since the bites will be small. There are many fantastic restaurants around Central Avenue. Afterward, we'll all enjoy wine, beer, champagne, and non-alcoholic beverages while raising a glass with the grooms! — The first round is on Koby &amp; William.</div>
+        <div class="tl-desc">The main celebration!<br><br>If you must prioritize anything, make sure to attend this full event. The grooms suggest having dinner on your own since the bites will be small. There are many fantastic restaurants around Central Avenue. Afterward, we'll all enjoy wine, beer, champagne, and non-alcoholic beverages while raising a glass with the grooms! — The first round is on Koby &amp; William.</div>
       </div>
       <div class="tl-item">
         <div class="tl-time">Saturday night</div>
@@ -806,9 +810,9 @@
         <div class="tl-desc">Following the main celebration at Delicious Wine Bar, join in on some bar hopping fun afterward — 3 Daughters Brewery, Bayboro Brewery, Lost &amp; Found, and Cocktails are all potential spots we may bounce to and from. Let the party continue into the night!!</div>
       </div>
       <div class="tl-item">
-        <div class="tl-time">Sunday, October 18</div>
-        <div class="tl-title">Beach day</div>
-        <div class="tl-desc">Pack a swimsuit and join Billy and Koby for a relaxing day on the beach, taking time to wind down from the beautiful celebration from the day before. Text Billy or Koby for specifics on which beach to meet at!</div>
+        <div class="tl-time">Sunday, October 18 &middot; 11 AM</div>
+        <div class="tl-title">Beach Day</div>
+        <div class="tl-desc">Pack a swimsuit and join Billy and Koby for a relaxing day on the beach, taking time to wind down from the beautiful celebration from the day before. Please review the FAQ section for more information regarding Sunday.</div>
       </div>
     </div>
   </div>
@@ -891,6 +895,7 @@
     <div class="faq-grid faq-grid-wide">
       <details class="faq-item">
         <summary>Things to do</summary>
+        <p class="reco-note">Tap any spot to open it in Google Maps</p>
         <ul class="reco-list">
           <li><a href="https://www.google.com/maps/search/?api=1&query=Imagine+Museum+St+Petersburg+FL" target="_blank" rel="noopener">Imagine Museum</a></li>
           <li><a href="https://www.google.com/maps/search/?api=1&query=Sunken+Gardens+St+Petersburg+FL" target="_blank" rel="noopener">Sunken Gardens</a></li>
@@ -912,6 +917,7 @@
 
       <details class="faq-item">
         <summary>Beaches</summary>
+        <p class="reco-note">Tap any spot to open it in Google Maps</p>
         <ul class="reco-list">
           <li><a href="https://www.google.com/maps/search/?api=1&query=St+Pete+Beach+FL" target="_blank" rel="noopener">St Pete Beach / Upham / Secret Garden</a></li>
           <li><a href="https://www.google.com/maps/search/?api=1&query=Caddys+Sunset+Beach+FL" target="_blank" rel="noopener">Sunset Beach / Caddy's</a></li>
@@ -924,6 +930,7 @@
 
       <details class="faq-item">
         <summary>Coffee</summary>
+        <p class="reco-note">Tap any spot to open it in Google Maps</p>
         <ul class="reco-list">
           <li><a href="https://www.google.com/maps/search/?api=1&query=Bean+Wandering+Coffee+St+Petersburg+FL" target="_blank" rel="noopener">Bean Wandering</a></li>
           <li><a href="https://www.google.com/maps/search/?api=1&query=Concrete+Coffee+St+Petersburg+FL" target="_blank" rel="noopener">Concrete Coffee</a></li>
@@ -937,6 +944,7 @@
 
       <details class="faq-item">
         <summary>Brunch</summary>
+        <p class="reco-note">Tap any spot to open it in Google Maps</p>
         <ul class="reco-list">
           <li><a href="https://www.google.com/maps/search/?api=1&query=Social+Roost+St+Petersburg+FL" target="_blank" rel="noopener">Social Roost</a></li>
           <li><a href="https://www.google.com/maps/search/?api=1&query=Stillwater+Tavern+St+Petersburg+FL" target="_blank" rel="noopener">Stillwater Tavern</a></li>
@@ -948,6 +956,7 @@
 
       <details class="faq-item">
         <summary>Restaurants</summary>
+        <p class="reco-note">Tap any spot to open it in Google Maps</p>
         <ul class="reco-list">
           <li><a href="https://www.google.com/maps/search/?api=1&query=Noble+Crust+St+Petersburg+FL" target="_blank" rel="noopener">Nobel Crust (modern American)</a></li>
           <li><a href="https://www.google.com/maps/search/?api=1&query=Juno+and+the+Peacock+St+Petersburg+FL" target="_blank" rel="noopener">Juno and the Peacock (modern American)</a></li>
@@ -964,6 +973,7 @@
 
       <details class="faq-item">
         <summary>Happy Hour</summary>
+        <p class="reco-note">Tap any spot to open it in Google Maps</p>
         <ul class="reco-list">
           <li><a href="https://www.google.com/maps/search/?api=1&query=Bacchus+St+Petersburg+FL" target="_blank" rel="noopener">Bacchus (4–6)</a></li>
           <li><a href="https://www.google.com/maps/search/?api=1&query=Stillwater+Tavern+St+Petersburg+FL" target="_blank" rel="noopener">Stillwater (4–7)</a></li>
@@ -976,6 +986,7 @@
 
       <details class="faq-item">
         <summary>Cocktail Bars</summary>
+        <p class="reco-note">Tap any spot to open it in Google Maps</p>
         <ul class="reco-list">
           <li><a href="https://www.google.com/maps/search/?api=1&query=Saigon+Blond+St+Petersburg+FL" target="_blank" rel="noopener">Saigon Blond</a></li>
           <li><a href="https://www.google.com/maps/search/?api=1&query=Mandarin+Hide+St+Petersburg+FL" target="_blank" rel="noopener">Mandarin Hide</a></li>
@@ -993,6 +1004,7 @@
 
       <details class="faq-item">
         <summary>Gay Bars</summary>
+        <p class="reco-note">Tap any spot to open it in Google Maps</p>
         <ul class="reco-list">
           <li><a href="https://www.google.com/maps/search/?api=1&query=Cocktails+St+Petersburg+FL" target="_blank" rel="noopener">Cocktails</a></li>
           <li><a href="https://www.google.com/maps/search/?api=1&query=Enigma+St+Petersburg+FL" target="_blank" rel="noopener">Enigma</a></li>
@@ -1004,6 +1016,7 @@
 
       <details class="faq-item">
         <summary>Dive Bars</summary>
+        <p class="reco-note">Tap any spot to open it in Google Maps</p>
         <ul class="reco-list">
           <li><a href="https://www.google.com/maps/search/?api=1&query=Five+Bucks+Bar+St+Petersburg+FL" target="_blank" rel="noopener">Five Bucks</a></li>
           <li><a href="https://www.google.com/maps/search/?api=1&query=Bar+548+St+Petersburg+FL" target="_blank" rel="noopener">Bar 548</a></li>
@@ -1017,6 +1030,7 @@
 
       <details class="faq-item">
         <summary>DJ / Dance Bars</summary>
+        <p class="reco-note">Tap any spot to open it in Google Maps</p>
         <ul class="reco-list">
           <li><a href="https://www.google.com/maps/search/?api=1&query=My+Rich+Uncle+St+Petersburg+FL" target="_blank" rel="noopener">My Rich Uncle</a></li>
           <li><a href="https://www.google.com/maps/search/?api=1&query=Goodnight+Johnny+Boy+St+Petersburg+FL" target="_blank" rel="noopener">Good Night Johnny Boy</a></li>
