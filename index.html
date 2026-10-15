@@ -775,8 +775,8 @@
         <p>Need a little inspiration? Check out our vision board for the colors, textures, and overall vibe we have in mind. We can't wait to see how you interpret it!</p>
         <p class="reco-subhead" style="text-align:center;">Vision Board</p>
         <div class="vision-row">
-          <figure><img src="images/attire-inspo-1.jpg" alt="Attire inspiration mood board — warm earth-tone garden party looks" loading="lazy"></figure>
-          <figure><img src="images/attire-inspo-2.jpg" alt="Attire inspiration mood board — men's warm-toned garden party looks" loading="lazy"></figure>
+          <figure><img src="images/attire-inspo-1.jpg" alt="Attire inspiration mood board — warm earth-tone garden party looks" decoding="async"></figure>
+          <figure><img src="images/attire-inspo-2.jpg" alt="Attire inspiration mood board — men's warm-toned garden party looks" decoding="async"></figure>
         </div>
       </details>
 
@@ -1141,6 +1141,20 @@
       }
     });
   });
+
+  // Warm up the attire vision board images so they're ready before the FAQ is opened
+  const warmVisionBoard = () => {
+    document.querySelectorAll('.vision-row img').forEach(img => {
+      const pre = new Image();
+      pre.decoding = 'async';
+      pre.src = img.getAttribute('src');
+    });
+  };
+  if (document.readyState === 'complete') {
+    setTimeout(warmVisionBoard, 300);
+  } else {
+    window.addEventListener('load', () => setTimeout(warmVisionBoard, 300));
+  }
 </script>
 
 </body>
