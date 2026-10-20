@@ -343,6 +343,26 @@
   .btn-solid{background:var(--olive);}
   .btn-solid:hover{background:var(--moose);}
 
+  /* Wedding Photos tab */
+  .wp-card{
+    background:var(--cream); border:1px solid var(--ceramic); padding:2.2rem 1.8rem;
+    text-align:center; position:relative; max-width:600px; margin:0 auto;
+  }
+  .wp-card::before{
+    content:''; position:absolute; inset:8px; border:1px solid var(--ceramic); opacity:0.6; pointer-events:none;
+  }
+  .wp-lead{font-size:1rem; color:var(--havana); max-width:46ch; margin:0 auto 1.6rem;}
+  .wp-pin{
+    display:inline-flex; align-items:baseline; gap:0.7rem; margin:1.6rem auto 0;
+    padding:0.55rem 1.3rem; border:1px dashed var(--oak); border-radius:999px;
+  }
+  .wp-pin-label{font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--oak); font-weight:500;}
+  .wp-pin-code{font-family:var(--serif); font-size:1.35rem; letter-spacing:0.18em; color:var(--moose); font-weight:600;}
+  .wp-pin-note{font-size:0.8rem; color:var(--oak); font-style:italic; margin-top:0.5rem;}
+  .wp-thanks{margin-top:2rem; font-size:0.95rem; color:var(--havana); max-width:50ch; margin-left:auto; margin-right:auto;}
+  .wp-thanks a{color:var(--olive); border-bottom:1px solid var(--olive); font-weight:500;}
+  .wp-thanks a:hover{color:var(--moose); border-color:var(--moose);}
+
   .lodging-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.4rem; max-width:760px; margin:0 auto;}
   .lodging-card{
     background:var(--cream); border:1px solid var(--ceramic); padding:2.2rem 1.6rem; text-align:center;
@@ -394,6 +414,7 @@
     <nav>
       <ul id="navList">
         <li><a href="#home">Home</a></li>
+        <li><a href="#wedding-photos">Wedding Photos</a></li>
         <li><a href="#story">Our Story</a></li>
         <li><a href="#photos">Photos</a></li>
         <li><a href="#schedule">Schedule</a></li>
@@ -636,6 +657,29 @@
       </g>
     </svg>
     <p class="hero-note">Explore using the menu above</p>
+  </div>
+</section>
+
+<section id="wedding-photos" class="alt">
+  <div class="narrow">
+    <p class="eyebrow center" style="font-size:1rem;">Wedding Photos</p>
+    <h2 class="center" style="font-size:2.2rem; margin-top:0.5rem;">The weekend in photos</h2>
+    <svg class="sprig" viewBox="0 0 120 30"><path d="M5 15 C 30 5, 90 25, 115 15"/><ellipse class="leaf" cx="35" cy="10" rx="7" ry="3" transform="rotate(-20 35 10)"/><ellipse class="leaf" cx="60" cy="20" rx="7" ry="3" transform="rotate(15 60 20)"/><ellipse class="leaf" cx="85" cy="10" rx="7" ry="3" transform="rotate(-15 85 10)"/></svg>
+
+    <div class="wp-card">
+      <p class="wp-lead">Please click below to view all the amazing photos from the most perfect weekend!</p>
+      <a class="btn btn-solid" href="https://bjoyfuleventsllc.pixieset.com/kobybilly/" target="_blank" rel="noopener">View the Gallery</a>
+
+      <div>
+        <div class="wp-pin">
+          <span class="wp-pin-label">Download PIN</span>
+          <span class="wp-pin-code">4546</span>
+        </div>
+        <p class="wp-pin-note">If you wish to download any of the photos, use the PIN above.</p>
+      </div>
+
+      <p class="wp-thanks">We want to give a huge shout out to our amazing friends Bekah and Evan with <a href="https://www.bjoyfulevents.com/" target="_blank" rel="noopener">B Joyful Events LLC</a>!</p>
+    </div>
   </div>
 </section>
 
